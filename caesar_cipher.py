@@ -1,4 +1,9 @@
-# test
+# программа способна шифровать и дешифровать текст в соответствии с алгоритмом "шифр Цезаря".
+# Она должна запрашивать у пользователя следующие данные:
+# - направление: шифрование или дешифрование;
+# - язык алфавита: русский или английский;
+# - шаг сдвига (со сдвигом вправо).
+
 eng_lower_alphabet = 'abcdefghijklmnopqrstuvwxyz'
 eng_upper_alphabet = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ'
 rus_lower_alphabet = "абвгдежзийклмнопрстуфхцчшщъыьэюя"
@@ -60,13 +65,28 @@ def cesars_shifr_eng_left(str1, n):
         else:
             print(str1[i], end="")
 
-# функция считает длину слова без учета символов
-def lenght(text):
-    total = 0
-    for i in text:
-        if "a" <= i <= "z" or "A" <= i <= "Z":
-            total += 1
-    return total
-
-vvod = input().split()
-[cesars_shifr_eng_right(vvod[i], lenght(vvod[i])) for i in range(len(vvod))]
+print("Привет!", end=" ")
+while True:
+    k = int(input("Ты хочешь зашифровать послание или дешифровать? 1 - шифровать / 2 - дешифровать: "))
+    l = int(input("Послание будет на русском или на английском языке? 1 - русский / 2 - английский: "))
+    n = int(input("Какой будет шаг сдвига? "))
+    str1 = input("Введи послание: ")
+    if k == 1 and l == 1:
+        print("Шифрование русского послания со сдвигом " + str(n) + ": ", end=" ")
+        cesars_shifr_rus_right(str1, n)
+    elif k == 2 and l == 1:
+        print("Дешифрование русского послания со сдвигом " + str(n) + ": ", end=" ")
+        cesars_shifr_rus_left(str1, n)
+    elif k == 1 and l == 2:
+        print("Шифрование английского послания со сдвигом " + str(n) + ": ", end=" ")
+        cesars_shifr_eng_right(str1, n)
+    elif k == 2 and l == 2:
+        print("Дешифрование английского послания со сдвигом " + str(n) + ": ", end=" ")
+        cesars_shifr_eng_left(str1, n)
+    print()
+    q = int(input("Требуется ли обработать ещё одно послание? 1 - да / 2 - нет: "))
+    if q == 1:
+        continue
+    elif q == 2:
+        print("Рад был помочь, пока!")
+        break
