@@ -279,6 +279,8 @@ def play(word):
                     continue
                 elif tries == 0:
                     print("Вы проиграли, Вас повесили: ", display_hangman(tries))
+                    print()
+                    print("Загаданное слово было: ", word)
                     while True:
                         question = input("Будете снова играть? да/нет: ").upper()
                         time.sleep(1)
@@ -314,6 +316,8 @@ def play(word):
                     continue
                 elif tries == 0:
                     print("Вы проиграли, Вас повесили: ", display_hangman(tries))
+                    print()
+                    print("Загаданное слово было: ", word)
                     while True:
                         time.sleep(0.5)
                         question = input("Будете снова играть? да/нет: ").upper()
