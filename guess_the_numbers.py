@@ -27,6 +27,8 @@ while True:
     else:
         print("Вы угадали с", total, "попытки, поздравляем!")
         question = input("y - новая игра, n - закончить игру: ")
+        while question != "y" and question != "n":
+            question = input("y - новая игра, n - закончить игру: ")
         if question == "y":
             n = int(input("Ура! Продолжаем играть! Напишите целое число - правая граница чисел: "))
             n1 = random.randint(1, n)
