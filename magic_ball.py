@@ -15,6 +15,8 @@ while True:
     input("Что ты хочешь спросить у меня? ")
     print(random.choice(answers))
     ans = input("Хочешь задать ещё вопрос? Да/Нет: ")
+    while ans.lower() != "да" and ans.lower() != "нет":
+        ans = input("Хочешь задать ещё вопрос? Да/Нет: ")
     if ans.lower() == "да":
         continue
     elif ans.lower() == "нет":
